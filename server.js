@@ -2,6 +2,7 @@ const apireq=require('./getapi.js');
 const express=require('express');
 const hbs=require('hbs');
 const url="https://api.github.com/search/repositories?q=language:";
+const port=process.env.PORT||3000;
 
 var app=express();
 app.use(express.static(__dirname+'/public'))
@@ -38,7 +39,7 @@ var apiresp=apireq.qrydata(url,lang,(errorMessage,body)=>{
 
 });
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
 console.log('Server Started...');
 });
 
